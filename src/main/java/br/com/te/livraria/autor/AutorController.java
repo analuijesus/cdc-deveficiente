@@ -11,15 +11,15 @@ public class AutorController {
 
     private final AutorRespository autorRespository;
 
-    public AutorController(AutorRespository autorRespository, EmailDuplicadoValidator validator) {
+    public AutorController(AutorRespository autorRespository) {
         this.autorRespository = autorRespository;
     }
 
     @PostMapping("/cadastraAutor")
     @Transactional
-    public ResponseEntity novo(@RequestBody @Valid AutorForm form) {
+    public ResponseEntity<Void> novo(@RequestBody @Valid AutorForm form) {
         Autor autor = form.toModel();
         autorRespository.save(autor);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 }

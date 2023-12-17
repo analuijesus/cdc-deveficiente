@@ -28,7 +28,7 @@ public class EmailDuplicadoValidator implements Validator {
         }
 
         AutorForm form = (AutorForm) target;
-        Optional<Autor> possivelAutor = autorRespository.findByEmail(form.getEmail());
+        Optional<Autor> possivelAutor = autorRespository.findByEmail(form.email());
 
         if(possivelAutor.isPresent()) {
             errors.rejectValue("email", "[Erro] - Email duplicado");
