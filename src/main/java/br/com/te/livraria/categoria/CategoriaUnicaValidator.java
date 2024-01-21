@@ -27,7 +27,7 @@ public class CategoriaUnicaValidator implements Validator {
         }
 
         CategoriaForm form = (CategoriaForm) target;
-        Optional<Categoria> possivelCategoria = categoriaRepository.findByNome(form.getNome());
+//        Optional<Categoria> possivelCategoria = categoriaRepository.findByNome(form.getNome());
 
     }
 }

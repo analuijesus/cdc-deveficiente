@@ -10,20 +10,13 @@ import org.springframework.web.bind.annotation.*;
 public class CategoriaController {
 
     private final CategoriaRepository categoriaRepository;
-    private final CategoriaUnicaValidator validator;
 
-    public CategoriaController(CategoriaRepository categoriaRepository, CategoriaUnicaValidator validator) {
+    public CategoriaController(CategoriaRepository categoriaRepository) {
         this.categoriaRepository = categoriaRepository;
-        this.validator = validator;
     }
 
-//    @InitBinder
-//    public void initBinder(WebDataBinder dataBinder) {
-//        dataBinder.addValidators(validator);
-//    }
-
     @PostMapping("/cadastraCategoria")
-    public ResponseEntity novo(@RequestBody @Valid CategoriaForm form) {
+    public ResponseEntity<Void> novo(@RequestBody @Valid CategoriaForm form) {
         Categoria categoria = form.toModel();
         categoriaRepository.save(categoria);
         return ResponseEntity.ok().build();

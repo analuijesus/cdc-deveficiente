@@ -3,10 +3,12 @@ package br.com.te.livraria.uteis.validacao;
 import jakarta.persistence.*;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 import java.util.List;
 
+@Component
 public class UniqueValueValidator implements ConstraintValidator<UniqueValue, Object> {
 
     private String domainAttribute;

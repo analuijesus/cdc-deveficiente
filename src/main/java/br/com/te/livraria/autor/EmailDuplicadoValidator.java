@@ -10,9 +10,9 @@ import java.util.Optional;
 @Component
 public class EmailDuplicadoValidator implements Validator {
 
-    private final AutorRespository autorRespository;
+    private final AutorRepository autorRespository;
 
-    public EmailDuplicadoValidator(AutorRespository autorRespository) {
+    public EmailDuplicadoValidator(AutorRepository autorRespository) {
         this.autorRespository = autorRespository;
     }
 

@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AutorController {
 
-    private final AutorRespository autorRespository;
+    private final AutorRepository autorRespository;
 
-    public AutorController(AutorRespository autorRespository) {
+    public AutorController(AutorRepository autorRespository) {
         this.autorRespository = autorRespository;
     }
 
@@ -20,6 +20,6 @@ public class AutorController {
     public ResponseEntity<Void> novo(@RequestBody @Valid AutorForm form) {
         Autor autor = form.toModel();
         autorRespository.save(autor);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 }

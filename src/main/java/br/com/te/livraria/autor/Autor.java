@@ -1,5 +1,6 @@
 package br.com.te.livraria.autor;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.Length;
@@ -20,6 +21,7 @@ public class Autor {
     @Length(min = 5, max = 400)
     private String descricao;
     @NotNull
+    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
     private LocalDate dataCriacao;
 
     public Autor(String nome, String email, String descricao) {
@@ -33,4 +35,21 @@ public class Autor {
     public Autor() {
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    @Override
+    public String toString() {
+        return "Autor{" +
+                "nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", dataCriacao=" + dataCriacao +
+                '}';
+    }
 }

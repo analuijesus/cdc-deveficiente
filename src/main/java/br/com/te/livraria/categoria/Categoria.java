@@ -18,4 +18,15 @@ public class Categoria {
 
     @Deprecated
     public Categoria() {}
+
+    public String getNome() {
+        return nome;
+    }
+
+    @Override
+    public String toString() {
+        return "Categoria{" +
+                "nome='" + nome + '\'' +
+                '}';
+    }
 }
